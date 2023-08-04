@@ -1,3 +1,114 @@
 body {
-  background-color: aquamarine;
+  background-color: rgb(124, 200, 111);
 }
+.titulo{
+  text-align: center;
+
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 50%;
+    width: 100%
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+.geral{
+background-color: rgb(51, 106, 24);
+width: 30%;
+height: 50%;
+border-radius: 20px 30px 40px 20px;
+margin-left: 35%;
+text-align: center;
+border-bottom: 10px solid rgb(142, 215, 142);
+}
+.titulo2{
+  text-align: center;
+  margin-top: 60px;
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 1100%;
+    width: 100%
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+.txtemail{
+
+  margin-top: 40px;
+  margin-left: 1px;
+}
+
+.email{
+  margin-top: 50px;
+  width: 40%;
+  height: 50px;
+  
+}
+.txtsenha{
+
+
+
+}
+.senha{
+  margin-top: 30px;
+  margin-bottom: 50px;
+  width: 40%;
+  height: 50px;
+
+}
+@import url('https://fonts.googleapis.com/css?family=Lato:100&display=swap');
+
+
+
+
+.button {
+  width: 180px;
+  height: 60px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #ffffff;
+  outline: none;
+  transition: 1s ease-in-out;
+  margin-bottom: 50px;
+}
+
+svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  fill: none;
+
+  transition: 1s ease-in-out;
+}
+
+.button:hover {
+  transition: 1s ease-in-out;
+  background: #000000;
+}
+
+.button:hover svg {
+  stroke-dashoffset: -480;
+}
+
+.button span {
+  color: white;
+  font-size: 18px;
+  font-weight: 100;
+}
+
+
+  
