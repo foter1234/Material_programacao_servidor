@@ -36,6 +36,10 @@ app.get('/', async function(req, res){
   res.render("home")
 })
 
+app.get("/usuarios/cadastrar",async function (req,res){
+ res.render('cadastro')
+})
+
 app.post('/logar', (req, res) => {
 
   if (req.body.usuario == "Lucas@gmail.com" && req.body.senha == 12345) {
@@ -66,3 +70,5 @@ app.post('/deslogar', function(req, res) {
 app.listen(3000, function() {
   console.log('App de Exemplo escutando na porta 3000!')
 });
+
+
