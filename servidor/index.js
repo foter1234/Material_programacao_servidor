@@ -19,13 +19,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 app.use(express.static('public'));
 
-app.use(cookieParser());
+app.use(cookieParser());//cookieParser()
 app.use(
   expressJWT({
-    secret: process.env.SECRET,
+    secret: process.env.SECRET,//
     algorithms: ["HS256"],
     getToken: req => req.cookies.token
-  }).unless({ path: ["/autenticar", "/logar", "/deslogar", "/"] })
+  }).unless({ path: ["/autenticar", "/logar", "/deslogar"]})
 );
 
 app.get('/autenticar', async function(req, res){
@@ -39,18 +39,28 @@ app.get('/', async function(req, res){
 app.post('/logar', (req, res) => {
 
   if (req.body.usuario == "Lucas@gmail.com" && req.body.senha == 12345) {
-    res.send("você está logado")
+    //res.send("você está logado")
+    const id = 1;
+    const token = jwt.sign({id}, process.env.SECRET, {//gerar um token para cada login
+     expiresIn: 300//tempo em que o token será expirado
+    });
+res.cookie("token", token, {httponly:true})// envia o cookie para a pagina, "token"=é o nome do token, token="variavel em quue gera o token" {httponly:true} serve para que só funcione no navegador
+return res.json({
+usuario:req.body.usuario,
+token: token
+})//informações que serão passadas
 
   } else {
-    res.send("você não está logado")
+    res.status(500).json({mensagem:"login inválido"})//res.status()//erros do hhtp, exemplo:404//json({mensagem:"login inválido"})//mensagem em caso de erro
   }
 
- 
+
   
 })
 
 app.post('/deslogar', function(req, res) {
-  
+  res.cookie("token", null, {httponly:true})
+  return res.json({deslogado:true})
 })
 
 app.listen(3000, function() {
