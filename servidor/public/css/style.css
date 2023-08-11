@@ -1,9 +1,8 @@
 body {
-  background-color: rgb(124, 200, 111);
+  background-color: rgb(241, 242, 241);
 }
 .titulo{
   text-align: center;
-
   animation-duration: 3s;
   animation-name: slidein;
 }
@@ -11,26 +10,32 @@ body {
 @keyframes slidein {
   from {
     margin-left: 50%;
-    width: 100%
+    width: 50%
   }
 
   to {
     margin-left: 0%;
-    width: 100%;
+    width: 50%;
   }
 }
 .geral{
-background-color: rgb(51, 106, 24);
+background-color: rgb(219, 223, 219);
 width: 30%;
-height: 50%;
+height: 60%;
 border-radius: 20px 30px 40px 20px;
 margin-left: 35%;
 text-align: center;
-border-bottom: 10px solid rgb(142, 215, 142);
+border-bottom: 10px solid rgb(238, 236, 236);
+  
 }
+
+.empurrar{
+  margin-bottom: 20px;
+}
+
 .titulo2{
+  margin-top: 30%;
   text-align: center;
-  margin-top: 60px;
   animation-duration: 3s;
   animation-name: slidein;
 }
@@ -47,8 +52,6 @@ border-bottom: 10px solid rgb(142, 215, 142);
   }
 }
 .txtemail{
-
-  margin-top: 40px;
   margin-left: 1px;
 }
 
@@ -80,7 +83,7 @@ border-bottom: 10px solid rgb(142, 215, 142);
   height: 60px;
   cursor: pointer;
   background: transparent;
-  border: 1px solid #ffffff;
+  border: 1px solid #5a5a5a;
   outline: none;
   transition: 1s ease-in-out;
   margin-bottom: 50px;
@@ -97,7 +100,7 @@ svg {
 
 .button:hover {
   transition: 1s ease-in-out;
-  background: #000000;
+  background: rgb(236, 239, 236);
 }
 
 .button:hover svg {
@@ -105,7 +108,7 @@ svg {
 }
 
 .button span {
-  color: white;
+  color: rgb(99, 99, 99);
   font-size: 18px;
   font-weight: 100;
 }
