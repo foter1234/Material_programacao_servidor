@@ -25,7 +25,7 @@ app.use(
     secret: process.env.SECRET,//
     algorithms: ["HS256"],
     getToken: req => req.cookies.token
-  }).unless({ path: ["/autenticar", "/logar", "/deslogar"]})
+  }).unless({ path: ["/autenticar", "/logar", "/deslogar","/usuarios/cadastrar"]})
 );
 
 app.get('/autenticar', async function(req, res){
@@ -39,6 +39,28 @@ app.get('/', async function(req, res){
 app.get("/usuarios/cadastrar",async function (req,res){
  res.render('cadastro')
 })
+
+app.post("/usuarios/cadastrar", async function (req,res){
+  if (req.body.senha == req.body.senha2 && req.body.novousuario != "") {
+    
+    const id = 1;
+    const token = jwt.sign({id}, process.env.SECRET, {//gerar um token para cada login
+     expiresIn: 300//tempo em que o token será expirado
+    });
+res.cookie("token", token, {httponly:true})// envia o cookie para a pagina, "token"=é o nome do token, token="variavel em quue gera o token" {httponly:true} serve para que só funcione no navegador
+return res.json({
+novousuario:req.body.novousuario,
+token: token
+})//informações que serão passadas
+
+  } else {
+    res.status(500).json({mensagem:"login inválido"})//res.status()//erros do hhtp, exemplo:404//json({mensagem:"login inválido"})//mensagem em caso de erro
+  }
+ })
+ 
+ 
+
+
 
 app.post('/logar', (req, res) => {
 
