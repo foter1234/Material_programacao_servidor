@@ -9,6 +9,7 @@ var cookieParser = require('cookie-parser')
 const express = require('express');
 const { usuario } = require('./models');
 
+
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -43,11 +44,12 @@ app.get("/usuarios/cadastrar",async function (req,res){
 app.post("/usuarios/cadastrar", async function (req,res){
   if (req.body.senha == req.body.senha2 && req.body.novousuario != "") {
 
-return res.json({
-novo_usuario_cadastrado:req.body.novousuario,
-
-senha:req.body.senha
-})//informações que serão passadas
+ await usuario.create(req.body)
+ 
+    return res.json({
+    novo_usuario_cadastrado:req.body.novousuario,
+    senha:req.body.senha
+    })//informações que serão passadas
 
   } else {
     res.status(500).json({mensagem:"cadastro Inválido"})//res.status()//erros do hhtp, exemplo:404//json({mensagem:"login inválido"})//mensagem em caso de erro
