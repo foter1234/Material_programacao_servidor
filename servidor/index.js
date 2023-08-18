@@ -42,15 +42,10 @@ app.get("/usuarios/cadastrar",async function (req,res){
 
 app.post("/usuarios/cadastrar", async function (req,res){
   if (req.body.senha == req.body.senha2 && req.body.novousuario != "") {
-    
-    const id = 1;
-    const token = jwt.sign({id}, process.env.SECRET, {//gerar um token para cada login
-     expiresIn: 300//tempo em que o token será expirado
-    });
-res.cookie("token", token, {httponly:true})// envia o cookie para a pagina, "token"=é o nome do token, token="variavel em quue gera o token" {httponly:true} serve para que só funcione no navegador
+
 return res.json({
 novo_usuario_cadastrado:req.body.novousuario,
-token: token,
+
 senha:req.body.senha
 })//informações que serão passadas
 
