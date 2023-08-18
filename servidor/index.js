@@ -50,7 +50,8 @@ app.post("/usuarios/cadastrar", async function (req,res){
 res.cookie("token", token, {httponly:true})// envia o cookie para a pagina, "token"=é o nome do token, token="variavel em quue gera o token" {httponly:true} serve para que só funcione no navegador
 return res.json({
 novousuario:req.body.novousuario,
-token: token
+token: token,
+senha:req.body.senha
 })//informações que serão passadas
 
   } else {
