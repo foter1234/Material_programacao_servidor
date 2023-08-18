@@ -54,7 +54,7 @@ token: token
 })//informações que serão passadas
 
   } else {
-    res.status(500).json({mensagem:"login inválido"})//res.status()//erros do hhtp, exemplo:404//json({mensagem:"login inválido"})//mensagem em caso de erro
+    res.status(500).json({mensagem:"cadastro Inválido"})//res.status()//erros do hhtp, exemplo:404//json({mensagem:"login inválido"})//mensagem em caso de erro
   }
  })
  
