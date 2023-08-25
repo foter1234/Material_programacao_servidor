@@ -7,11 +7,10 @@
   <title>Document</title>
 </head>
 <body>
-  <form action="/deslogar" method="post">
-    <input type="submit" value="Deslogar">
-    
 
-  </form>
-  <p>lucas</p>
+    <% usuarios.forEach((_usuario) => { %>
+        <%= _usuario.usuario %>
+    <% }) %>
+
 </body>
 </html>

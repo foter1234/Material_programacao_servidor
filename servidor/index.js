@@ -26,7 +26,7 @@ app.use(
     secret: process.env.SECRET,//
     algorithms: ["HS256"],
     getToken: req => req.cookies.token
-  }).unless({ path: ["/autenticar", "/logar", "/deslogar","/usuarios/cadastrar"]})
+  }).unless({ path: ["/autenticar", "/logar", "/deslogar","/usuarios/cadastrar", "/usuarios/listar"]})
 );
 
 app.get('/autenticar', async function(req, res){
@@ -42,36 +42,44 @@ app.get("/usuarios/cadastrar",async function (req,res){
 })
 
 app.post("/usuarios/cadastrar", async function (req,res){
-  if (req.body.senha == req.body.senha2 && req.body.novousuario != "") {
 
- await usuario.create(req.body)
- 
-    return res.json({
-    novo_usuario_cadastrado:req.body.novousuario,
-    senha:req.body.senha
-    })//informações que serão passadas
-
+  if (req.body.senha == req.body.senha2) {
+    console.log(req.body);
+    await usuario.create(req.body)
+    res.redirect("/usuarios/listar")
   } else {
     res.status(500).json({mensagem:"cadastro Inválido"})//res.status()//erros do hhtp, exemplo:404//json({mensagem:"login inválido"})//mensagem em caso de erro
   }
  })
+
  
- 
+
+ app.get("/usuarios/listar",async function (req,res){
+    
+  
+  let usuarios =  await usuario.findAll();
+  res.render("listar", {usuarios})
+  
+ })
 
 
 
 app.post('/logar', (req, res) => {
 
-  if (req.body.usuario == res.query.usuario && req.body.senha == res.query.usuario) {
+  if (req.body.usuario == "lucas@gmail.com" && req.body.senha == 12345) {
+
     //res.send("você está logado")
+    
     const id = 1;
     const token = jwt.sign({id}, process.env.SECRET, {//gerar um token para cada login
      expiresIn: 300//tempo em que o token será expirado
     });
-res.cookie("token", token, {httponly:true})// envia o cookie para a pagina, "token"=é o nome do token, token="variavel em quue gera o token" {httponly:true} serve para que só funcione no navegador
-return res.json({
-usuario:req.body.usuario,
-token: token
+
+    res.cookie("token", token, {httponly:true})// envia o cookie para a pagina, "token"=é o nome do token, token="variavel em quue gera o token" {httponly:true} serve para que só funcione no navegador
+
+    return res.json({
+    usuario:req.body.usuario,
+   token: token
 })//informações que serão passadas
 
   } else {
