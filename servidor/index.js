@@ -62,7 +62,7 @@ app.post("/usuarios/cadastrar", async function (req,res){
 
 app.post('/logar', (req, res) => {
 
-  if (req.body.usuario == "Lucas@gmail.com" && req.body.senha == 12345) {
+  if (req.body.usuario == res.query.usuario && req.body.senha == res.query.usuario) {
     //res.send("você está logado")
     const id = 1;
     const token = jwt.sign({id}, process.env.SECRET, {//gerar um token para cada login
