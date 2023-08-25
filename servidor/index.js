@@ -42,7 +42,6 @@ app.get("/usuarios/cadastrar",async function (req,res){
 })
 
 app.post("/usuarios/cadastrar", async function (req,res){
-
   if (req.body.senha == req.body.senha2) {
     console.log(req.body);
     await usuario.create(req.body)
@@ -55,11 +54,8 @@ app.post("/usuarios/cadastrar", async function (req,res){
  
 
  app.get("/usuarios/listar",async function (req,res){
-    
-  
   let usuarios =  await usuario.findAll();
   res.render("listar", {usuarios})
-  
  })
 
 
