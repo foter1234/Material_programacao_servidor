@@ -3,20 +3,7 @@ body {
 }
 .titulo{
   text-align: center;
-  animation-duration: 3s;
-  animation-name: slidein;
-}
 
-@keyframes slidein {
-  from {
-    margin-left: 50%;
-    width: 50%
-  }
-
-  to {
-    margin-left: 0%;
-    width: 50%;
-  }
 }
 .geral{
 background-color: rgb(219, 223, 219);
@@ -36,21 +23,8 @@ border-bottom: 10px solid rgb(238, 236, 236);
 .titulo2{
   margin-top: 30%;
   text-align: center;
-  animation-duration: 3s;
-  animation-name: slidein;
 }
 
-@keyframes slidein {
-  from {
-    margin-left: 1100%;
-    width: 100%
-  }
-
-  to {
-    margin-left: 0%;
-    width: 100%;
-  }
-}
 .txtemail{
   margin-left: 1px;
 }

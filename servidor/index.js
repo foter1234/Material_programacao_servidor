@@ -3,12 +3,15 @@ require("dotenv-safe").config();
 const jwt = require('jsonwebtoken');
 var { expressjwt: expressJWT } = require("express-jwt");
 const cors = require('cors');
-
 var cookieParser = require('cookie-parser')
-
 const express = require('express');
 const { usuario } = require('./models');
+const crypto = require('./crypto'); 
 
+
+//console.log(encrypted_key);
+//const decrypted_key = crypto.decrypt(encrypted_key);
+//console.log(decrypted_key);
 
 const app = express();
 
@@ -39,6 +42,8 @@ app.get('/', async function(req, res){
 
 app.get("/usuarios/cadastrar",async function (req,res){
  res.render('cadastro')
+
+ 
 })
 
 app.post("/usuarios/cadastrar", async function (req,res){
@@ -46,6 +51,10 @@ app.post("/usuarios/cadastrar", async function (req,res){
     console.log(req.body);
     await usuario.create(req.body)
     res.redirect("/usuarios/listar")
+    const encrypted_key = crypto.encrypt(req.body.senha);
+    console.log(encrypted_key)
+    const decrypted_key = crypto.decrypt(encrypted_key);
+    console.log(decrypted_key)
   } else {
     res.status(500).json({mensagem:"cadastro Inválido"})//res.status()//erros do hhtp, exemplo:404//json({mensagem:"login inválido"})//mensagem em caso de erro
   }
