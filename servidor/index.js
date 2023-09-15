@@ -51,8 +51,10 @@ app.post("/usuarios/cadastrar", async function (req,res){
     console.log(req.body);
     await usuario.create(req.body)
     res.redirect("/usuarios/listar")
+
     const encrypted_key = crypto.encrypt(req.body.senha);
     console.log(encrypted_key)
+    
     const decrypted_key = crypto.decrypt(encrypted_key);
     console.log(decrypted_key)
   } else {
@@ -70,6 +72,8 @@ app.post("/usuarios/cadastrar", async function (req,res){
 
 
 app.post('/logar', (req, res) => {
+
+
 
   if (req.body.usuario == "lucas@gmail.com" && req.body.senha == 12345) {
 
