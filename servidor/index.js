@@ -47,16 +47,20 @@ app.get("/usuarios/cadastrar",async function (req,res){
 })
 
 app.post("/usuarios/cadastrar", async function (req,res){
+
+
+
   if (req.body.senha == req.body.senha2) {
     console.log(req.body);
     await usuario.create(req.body)
     res.redirect("/usuarios/listar")
+     await crypto.encrypt(req.body.senha)
 
-    const encrypted_key = crypto.encrypt(req.body.senha);
-    console.log(encrypted_key)
+
+  
+
     
-    const decrypted_key = crypto.decrypt(encrypted_key);
-    console.log(decrypted_key)
+
   } else {
     res.status(500).json({mensagem:"cadastro Inválido"})//res.status()//erros do hhtp, exemplo:404//json({mensagem:"login inválido"})//mensagem em caso de erro
   }
@@ -67,7 +71,7 @@ app.post("/usuarios/cadastrar", async function (req,res){
  app.get("/usuarios/listar",async function (req,res){
   let usuarios =  await usuario.findAll();
   res.render("listar", {usuarios})
- })
+  })
 
 
 
