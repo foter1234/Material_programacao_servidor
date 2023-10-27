@@ -51,16 +51,14 @@ app.post("/usuarios/cadastrar", async function (req,res){
 
 
   if (req.body.senha == req.body.senha2) {
-    console.log(req.body);
-    await usuario.create(req.body)
-    res.redirect("/usuarios/listar")
-     await crypto.encrypt(req.body.senha)
-
-
-  
-
+    await usuario.create({
+      usuario: req.body.usuario,
+      senha: crypto.encrypt(req.body.senha),
     
-
+    });
+ 
+    res.redirect("/usuarios/listar");
+ 
   } else {
     res.status(500).json({mensagem:"cadastro Inválido"})//res.status()//erros do hhtp, exemplo:404//json({mensagem:"login inválido"})//mensagem em caso de erro
   }
@@ -75,11 +73,18 @@ app.post("/usuarios/cadastrar", async function (req,res){
 
 
 
-app.post('/logar', (req, res) => {
+app.post('/logar', async function (req, res)  {
 
+//const usuarios = "lucas@gmail.com"
+//const senha = "12344"
 
+const usuarioss = await usuario.findOne({ where: {usuario: req.body.usuario, senha:crypto.encrypt(req.body.senha) }});
 
-  if (req.body.usuario == "lucas@gmail.com" && req.body.senha == 12345) {
+//const usuarios = await usuario.findOne({ where: {usuario: req.body.usuario } });
+//const senha = await usuario.findOne({where: {senha:crypto.encrypt(req.body.senha)}})
+//if(req.body.usuario == usuarios && req.body.senha == senha){}  /// PORQUE NÃO FUNCIONAAAAA?
+
+if (usuarioss) {
 
     //res.send("você está logado")
     
