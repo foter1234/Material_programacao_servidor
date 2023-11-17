@@ -2,7 +2,22 @@
 require("dotenv-safe").config();
 const jwt = require('jsonwebtoken');
 var { expressjwt: expressJWT } = require("express-jwt");
+
+//cors abre um porta no servidor para o cliente, e libera para o cliente poder acessar certas funcionanlidades
 const cors = require('cors');
+
+const corsOpcoes = {
+  //CLIENTE QUE FARÁ O ACESSO
+  origin: "Http://localhost:3000",
+  //METODOS QUE O CLIENTE PODE EXECUTAR
+  methods:"GET,PUT,POST,DELETE",
+
+  allowedHeaders:"Content-Type, Authorization",
+  credentials: true
+} 
+
+
+
 var cookieParser = require('cookie-parser')
 const express = require('express');
 const { usuario } = require('./models');
@@ -17,7 +32,8 @@ const app = express();
 
 app.set('view engine', 'ejs');
 
-app.use(cors());
+app.use(cors(corsOpcoes))
+//app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
@@ -68,7 +84,8 @@ app.post("/usuarios/cadastrar", async function (req,res){
 
  app.get("/usuarios/listar",async function (req,res){
   let usuarios =  await usuario.findAll();
-  res.render("listar", {usuarios})
+  res.json(usuarios)
+  //res.render("listar", {usuarios})
   })
 
 
@@ -93,12 +110,16 @@ if (usuarioss) {
      expiresIn: 300//tempo em que o token será expirado
     });
 
-    res.cookie("token", token, {httponly:true})// envia o cookie para a pagina, "token"=é o nome do token, token="variavel em quue gera o token" {httponly:true} serve para que só funcione no navegador
+    res.cookie("token", token, {httponly:true}).json({
+      nome:usuarioss.usuario,
+      token: token
 
-    return res.json({
-    usuario:req.body.usuario,
-   token: token
-})//informações que serão passadas
+    })// envia o cookie para a pagina, "token"=é o nome do token, token="variavel em quue gera o token" {httponly:true} serve para que só funcione no navegador
+
+//return res.json({
+//usuario:req.body.usuario,
+//token: token
+//})//informações que serão passadas
 
   } else {
     res.status(500).json({mensagem:"login inválido"})//res.status()//erros do hhtp, exemplo:404//json({mensagem:"login inválido"})//mensagem em caso de erro
