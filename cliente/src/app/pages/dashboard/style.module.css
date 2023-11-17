@@ -1,0 +1,112 @@
+.body::-webkit-scrollbar {
+  width: 12px;               
+}
+
+.body::-webkit-scrollbar-track {
+  background: rgb(0, 0, 0);        
+}
+.body::-webkit-scrollbar-thumb {
+  background-color: rgb(49, 49, 49);    
+  border-radius: 20px;       
+  border: 3px solid rgb(121, 121, 121);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+  }
+  
+  .nav{
+    background: #ffffff;font-size: 16px;position: relative;
+  }
+  
+  .nav > ul > li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  
+  .nav > ul > li > a {
+    color: #000000;
+    display: block;
+    padding: 5px;
+    border-bottom: 3px solid transparent;
+    transition: all .3s ease;
+  }
+  
+  .nav > ul > li:hover > a {
+    color: #ffffff;
+    border-bottom: 3px solid #6d6969;
+  }
+  .divprincipal{
+    text-align: center;
+  }
+
+  
+  .conteiner {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 10%;
+  }
+  .divPrincipal{
+    width: 100%;
+    
+  }
+  
+  .card2 {
+    width: 190px;
+    height: 254px;
+    border-radius: 20px;
+    transition: all 0.3s;
+    margin: 10px;
+    margin-left:  120%;
+   
+  }
+  
+  .card2 .img {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    margin: auto;
+    margin-top: 20px;
+  }
+  
+  .card22 {
+    
+    width: 190px;
+    height: 254px;
+    background-color: #ff8400;
+    border-radius: 0;
+    transition: all 0.2s;
+  }
+
+  @media screen and (max-width: 768px) {
+    .conteiner {
+      grid-template-columns: repeat(1, 1fr); 
+      margin-left: 5%; 
+      text-align: center; 
+    }
+  
+
+  }
+
+  
+  .card22:hover {
+    transform: scale(0.98);
+    border-radius: 20px;
+    background-color: #ff0000;
+  }
+
+
+.h3{
+  margin-top: 10%;
+}

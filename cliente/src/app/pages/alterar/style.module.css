@@ -1,0 +1,89 @@
+
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: #333;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    justify-items: center;
+  }
+  
+
+  .h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+   
+  }
+  
+ 
+  .form {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin-left: 30%;
+    text-align: center;
+
+    background-color: #ffffff;
+  }
+  
+  .label {
+    font-size: 16px;
+    text-align: left;
+    margin-bottom: 4px;
+  }
+  
+  .input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  .input:focus {
+    border-color: #3498db;
+    box-shadow: 0px 0px 5px rgba(52, 152, 219, 0.5);
+  }
+  
+  .button {
+    background-color: #3498db;
+    color: #fff;
+    font-size: 18px;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 5%;
+  }
+  
+  .button:hover {
+    background-color: #2980b9;
+  }
+  
+  .link {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .voltar {
+    background-color: #ccc;
+    color: #333;
+    width: 30%;
+    margin-left: 30%;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .voltar:hover {
+    background-color: #999;
+  }
+  
