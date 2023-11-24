@@ -11,7 +11,7 @@ import styles from '@/app/pages/dashboard/style.module.css';
 export default async function Dashboard() {
 
 
-  const req = await fetch("https://aula-17-10-chi.vercel.app/users", {
+  const req = await fetch("localhost:3001/usuarios/listar", {
     cache: "no-cache"
   });
   const users = await req.json();

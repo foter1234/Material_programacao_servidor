@@ -111,7 +111,7 @@ if (usuarioss) {
     });
 
     res.cookie("token", token, {httponly:true}).json({
-      nome:usuarioss.usuario,
+      usuario:usuarioss.usuario,
       token: token
 
     })// envia o cookie para a pagina, "token"=é o nome do token, token="variavel em quue gera o token" {httponly:true} serve para que só funcione no navegador
@@ -121,21 +121,21 @@ if (usuarioss) {
 //token: token
 //})//informações que serão passadas
 
-  } else {
-    res.status(500).json({mensagem:"login inválido"})//res.status()//erros do hhtp, exemplo:404//json({mensagem:"login inválido"})//mensagem em caso de erro
-  }
+ /// } else {
+ ///   res.status(500).json({mensagem:"login inválido"})//res.status()//erros do hhtp, exemplo:404//json({mensagem:"login inválido"})//mensagem em caso de erro
+ // }
 
 
   
-})
+}})
 
 app.post('/deslogar', function(req, res) {
   res.cookie("token", null, {httponly:true})
   return res.json({deslogado:true})
 })
 
-app.listen(3000, function() {
-  console.log('App de Exemplo escutando na porta 3000!')
+app.listen(3001, function() {
+  console.log('App de Exemplo escutando na porta 3001!')
 });
 
 

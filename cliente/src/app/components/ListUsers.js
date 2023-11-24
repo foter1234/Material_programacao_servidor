@@ -19,7 +19,7 @@ export default async function ListUsers({user}) {
                <div class={styles.img} >
                 
                </div>
-               <h3 > {users.name}</h3>
+               <h3 > {users.usuario}</h3>
              </div>
              </div>   
              </div>

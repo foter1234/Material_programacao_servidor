@@ -1,6 +1,5 @@
 'use client'
 import { useState } from "react";
-import { postUser } from "@/app/functions/handlerAcessAPI";
 import handlerAcessUser from "@/app/functions/handlerAcess"
 import { useRouter } from "next/navigation";
 import {ToastContainer, toast} from 'react-toastify';

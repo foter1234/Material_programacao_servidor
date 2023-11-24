@@ -1,11 +1,14 @@
 'use server'
 
+import {cookies} from "next/headers"
 
-const url ="https://aula-17-10-chi.vercel.app"
+
+const url = "http://localhost:3001"
+//const url ="https://aula-17-10-chi.vercel.app"
 
 const getUserAuthenticated = async (user)=>{
     
-    const responseOfApi = await fetch(url + "/user/authenticated",
+    const responseOfApi = await fetch(url + "/logar",
      {
         cache:"no-cache",
         method:"POST",
@@ -16,10 +19,7 @@ const getUserAuthenticated = async (user)=>{
     )
    let userAuth = await responseOfApi.json();
    return userAuth
-
 }
-
-
 
 const getUsers = async () =>{
     
