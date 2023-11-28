@@ -18,7 +18,7 @@ const getUserAuthenticated = async (user)=>{
     )
    let userAuth = await responseOfApi.json();
    return userAuth
-}
+} 
 
 const getUsers = async (user) =>{
     const token = cookies().get('token')?.value;
@@ -40,12 +40,15 @@ const getUsers = async (user) =>{
 }
 
 const postUser = async (user) =>{
-
+   const token = cookies().get('token')?.value;
    try {
-      const responseOfApi = await fetch(url+ "/user",{
+      const responseOfApi = await fetch(url + "/usuarios/cadastrar",{
          method:"POST",
-         headers: {'Content-Type':'Aplication/json'},
-         body: JSON.stringify(user)
+         headers:{
+            'Content-Type':'Application/json',
+            Cookie: `token=${token}`
+            },
+            body: JSON.stringify(user)
       })
       const userSave = await responseOfApi.json()
      return userSave 

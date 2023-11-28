@@ -10,8 +10,8 @@ import { postUser } from "@/app/functions/handlerAcessAPI";
 export default  function register() {
 
   const [user, setUser] = useState({
-    email: '',
-    password: '',
+    usuario: '',
+    senha: '',
   });
 
   const {push} =useRouter()
@@ -37,15 +37,16 @@ export default  function register() {
       <h1 className={styles.h1}>registrar</h1>
         <input
           placeholder='E-mail'
-          type="email"
+          type="text"
           className={styles.input}
-          onChange={(e) => { setUser({ ...user, email: e.target.value }) }}>
+          onChange={(e) => { setUser({ ...user, usuario: e.target.value }) }}>
         </input>
+
         <input
           placeholder='Senha'
           className={styles.input}
-          type='password'
-          onChange={(e) => { setUser({ ...user, password: e.target.value }) }}>
+          type='text'
+          onChange={(e) => { setUser({ ...user, senha: e.target.value }) }}>
         </input>
         <button  className={styles.button}>Registrar</button>
       </form>
