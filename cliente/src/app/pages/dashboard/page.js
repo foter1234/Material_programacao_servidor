@@ -1,8 +1,6 @@
 //"use client"
 import ListUsers from "@/app/components/ListUsers"
 import { getUsers } from "@/app/functions/handlerAcessAPI";
-//import { getUserAuthenticated } from "@/app/functions/handlerAcessAPI";
-// import React, { useState, useEffect } from 'react';
 import {Suspense} from 'react'
 import Link from 'next/link'
 import styles from '@/app/pages/dashboard/style.module.css';
@@ -11,12 +9,8 @@ import styles from '@/app/pages/dashboard/style.module.css';
 export default async function Dashboard() {
 
 
-  const req = await fetch("localhost:3001/usuarios/listar", {
-    cache: "no-cache"
-  });
-  const users = await req.json();
 
-//const users = getUsers();
+const users = await getUsers();
 
 
 

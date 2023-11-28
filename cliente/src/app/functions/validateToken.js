@@ -22,4 +22,5 @@ const validateToken = async (token)=>{
 
     
 }   
+
 export {validateToken};

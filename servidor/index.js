@@ -8,7 +8,7 @@ const cors = require('cors');
 
 const corsOpcoes = {
   //CLIENTE QUE FARÁ O ACESSO
-  origin: "Http://localhost:3000",
+  origin: "http://localhost:3000",
   //METODOS QUE O CLIENTE PODE EXECUTAR
   methods:"GET,PUT,POST,DELETE",
 
