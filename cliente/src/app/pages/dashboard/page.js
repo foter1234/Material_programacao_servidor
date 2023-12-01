@@ -5,14 +5,9 @@ import {Suspense} from 'react'
 import Link from 'next/link'
 import styles from '@/app/pages/dashboard/style.module.css';
 
-
 export default async function Dashboard() {
 
-
-
 const users = await getUsers();
-
-
 
 return (
     <div className={styles.divprincipal}>

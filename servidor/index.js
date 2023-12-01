@@ -66,7 +66,7 @@ app.post("/usuarios/cadastrar", async function (req,res){
 
 
 
-  if (req.body.senha) {
+  if (req.body.senha == req.body.confirmarSenha) {
     await usuario.create({
       usuario: req.body.usuario,
       senha: crypto.encrypt(req.body.senha),
