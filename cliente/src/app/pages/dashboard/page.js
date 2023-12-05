@@ -15,9 +15,6 @@ return (
     <ul class={styles.container}>
       <li class={styles.dropdown}><a href='/' >Home</a></li>
       <li class={styles.dropdown}>
-        <a href='/pages/alterar'>Alterar</a>
-      </li>
-      <li class={styles.dropdown}>
         <a href='/pages/register'>Registrar</a>
       </li>
       

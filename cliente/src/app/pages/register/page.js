@@ -39,8 +39,9 @@ export default  function register() {
   }
   return (
     <div className={styles.Container}>
-      
-      <form onSubmit={handlerLogin} className={styles.form}>
+      <div className={styles.empurrar}></div>
+      <div className={styles.form}>
+      <form onSubmit={handlerLogin}>
       <h1 className={styles.h1}>registrar</h1>
 
         <input
@@ -69,6 +70,7 @@ export default  function register() {
 
       </form>
       <a href='/' className={styles.link}><button  className={styles.voltar}>Voltar</button></a>
+      </div>
       <ToastContainer/>
     </div>
   )
