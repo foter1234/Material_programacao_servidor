@@ -16,17 +16,12 @@ export default  function alterar() {
   const handlerLogin = async (e) => {
     e.preventDefault();
     try {
- 
        toast.success("alterado com sucesso")
-
-
     } catch {
       toast.error("Erro na aplicação")
       refresh();
     }
   }
-
-
   return (
     <div className={styles.Container}>
       
@@ -49,6 +44,6 @@ export default  function alterar() {
       <a href='/' className={styles.link}><button  className={styles.voltar}>Voltar</button></a>
       <ToastContainer/>
     </div>
-  )
-}
+  );
+};
 

@@ -21,22 +21,16 @@ export default  function register() {
 
   const handlerLogin = async (e) => {
     e.preventDefault();
-   
-  
-   
-
     try {
-
-      await postUser(user)
-      return push("/pages/dashboard")
-
-    } catch {
-      
-      toast.error("Erro na aplicação")
-      refresh();
+          await postUser(user)
+          return push("/pages/dashboard")
+    } catch { 
+          toast.error("Erro na aplicação")
+          refresh();
     }
-
   }
+
+  
   return (
     <div className={styles.Container}>
       <div className={styles.empurrar}></div>

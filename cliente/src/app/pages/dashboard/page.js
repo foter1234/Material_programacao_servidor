@@ -4,8 +4,12 @@ import { getUsers } from "@/app/functions/handlerAcessAPI";
 import {Suspense} from 'react'
 import Link from 'next/link'
 import styles from '@/app/pages/dashboard/style.module.css';
+import {cookies} from "next/headers"
 
 export default async function Dashboard() {
+
+
+
 
 const users = await getUsers();
 
@@ -26,7 +30,7 @@ return (
         
         <ListUsers user={users}/>
 
-  
+
 
 </Suspense>
     </div>

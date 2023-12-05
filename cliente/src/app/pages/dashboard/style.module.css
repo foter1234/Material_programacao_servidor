@@ -1,17 +1,14 @@
 .body::-webkit-scrollbar {
   width: 12px;               
 }
-
 .body::-webkit-scrollbar-track {
   background: rgb(0, 0, 0);        
 }
-
 .body::-webkit-scrollbar-thumb {
   background-color: rgb(49, 49, 49);    
   border-radius: 20px;       
   border: 3px solid rgb(121, 121, 121);
 }
-
 .container {
     width: 100%;
     max-width: 1200px; 
@@ -22,18 +19,15 @@
     align-items: center;
     font-family: Comic Sans MS;
   }
-  
   .nav{
     background: #ffffff;
     font-size: 16px;
     position: relative;
   }
-  
   .nav > ul > li {
     display: inline-block;
     margin: 0 10px;
   }
-  
   .nav > ul > li > a {
     color: #000000;
     display: block;
@@ -41,22 +35,18 @@
     border-bottom: 3px solid transparent;
     transition: all .3s ease;
   }
-  
   .nav > ul > li:hover > a {
     color: #ffffff;
     border-bottom: 3px solid #6d6969;
   }
-
   .divprincipal{
     text-align: center;
     font-family: Comic Sans MS;
   }
-
   .titulo{
     text-align: center;
     align-items: center;
   }
-  
   .conteiner {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -66,11 +56,9 @@
     text-align: center;
     margin-left: 10%;
   }
-  
   .divPrincipal{
     width: 100%;
   }
-
   .card2 {
     width: 100px;
     height: 180px;
@@ -79,14 +67,12 @@
     margin: 10px;
     margin-left:  120%;
   }
-  
   .card2 .img {
     width: 70px;
     height: 70px;
     border-radius: 100%;
     margin: auto;
   }
-  
   .card22 {
     width: 100px;
     height: 180px;
@@ -96,34 +82,27 @@
     text-align: center;
     align-items: center;
   }
-
   @media screen and (max-width: 768px) {
     .conteiner {
       grid-template-columns: repeat(1, 1fr); 
       margin-left: 5%; 
       text-align: center; 
     }
-  
-
   }
-  
   .card22:hover {
     transform: scale(0.98);
     border-radius: 20px;
     background-color: #00ff4c;
   }
-
 .h3{
   margin-top: 10%;
 }
-
 .dropdown{
   color: rgb(255, 255, 255);
   padding: 5px;
   border-radius: 10px;
   border: none;
 }
-
 .dropdown:hover{
   transition: 1s;
   background-color: rgb(21, 255, 0);

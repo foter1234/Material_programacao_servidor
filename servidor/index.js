@@ -113,7 +113,6 @@ if (usuarioss) {
     res.cookie("token", token, {httponly:true}).json({
       usuario:usuarioss.usuario,
       token: token
-
     })// envia o cookie para a pagina, "token"=é o nome do token, token="variavel em quue gera o token" {httponly:true} serve para que só funcione no navegador
 
 //return res.json({

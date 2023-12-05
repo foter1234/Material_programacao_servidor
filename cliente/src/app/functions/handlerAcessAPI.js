@@ -56,4 +56,5 @@ const postUser = async (user) =>{
       return null
    }
 }
+
 export { getUsers, getUserAuthenticated, postUser };
